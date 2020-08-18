@@ -1,0 +1,106 @@
+﻿
+@model JobKitWebApp.Models.ConnectPricing
+
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<section class="ftco-section ftco-counter">
+    <div class="container">
+        @*<div class="row justify-content-center mb-3 pb-3">
+                <div class="col-md-7 heading-section text-center ftco-animate">
+                    <h2 class="mb-1"><span>Add</span> City</h2>
+                </div>
+            </div>*@
+        <div class="row">
+            <div class="col-md-3 ftco-animate">
+                <ul class="category">
+                    <li><a href="~/Admin/ConnectPricings/Index" style="color:white; background-color:#5dd28e">Connect Pricings</a></li>
+
+                </ul>
+            </div>
+            <div class="col-md-9 ftco-animate">
+
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "p-5 bg-white" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(model => model.ConnectPricingId)
+
+                    <div class="row form-group">
+                        <div class="col-md-12 mb-3 mb-md-0">
+                            <label class="font-weight-bold" for="fullname">Number Of Connect</label>
+                            @Html.EditorFor(model => model.NumberOfConnect, new { htmlAttributes = new { @class = "form-control", @required = "@required" } })
+
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12 mb-3 mb-md-0">
+                            <label class="font-weight-bold" for="fullname">Price</label>
+                            @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @type = "number", @class = "form-control", @required = "@required" } })
+
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary py-2 px-5 justify-content-center">Update</button>
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+@*@{
+        Layout = null;
+    }
+
+    <!DOCTYPE html>
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Edit</title>
+    </head>
+    <body>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>ConnectPricing</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.ConnectPricingId)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NumberOfConnect, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.NumberOfConnect, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.NumberOfConnect, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </body>
+    </html>*@

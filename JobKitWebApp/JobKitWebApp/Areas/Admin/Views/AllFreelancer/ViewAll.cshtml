@@ -1,0 +1,287 @@
+﻿@model IEnumerable<JobKitWebApp.Models.Freelancer>
+
+@{
+    ViewBag.Title = "All Freelancers";
+
+}
+
+
+<section class="ftco-section ftco-counter">
+    <div class="container">
+        @*<div class="row justify-content-center mb-3 pb-3">
+                <div class="col-md-7 heading-section text-center ftco-animate">
+                    <h2 class="mb-1"><span></span> Admin</h2>
+                </div>
+            </div>*@
+        <div class="row">
+            <div class="col-md-3 ftco-animate">
+                <ul class="category">
+
+                    <li><a href="~/Admin/AllFreelancer/Index" style="color:white; background-color:#5dd28e">Freelancers</a></li>
+
+                    <li><a href="~/Admin/AllUser/Index">Clients</a></li>
+
+                    <li><a href="~/Admin/Connects/Index">Connect Payments</a></li>
+
+
+                    <li><a href="~/Admin/ConnectPricings/Index">Connect Pricings</a></li>
+
+                    <li><a href="~/Admin/FreelancerCategories/Index">Freelancer Category</a></li>
+
+                    <li><a href="~/Admin/JobTypes/Index">Job Types</a></li>
+
+                    <li><a href="~/Admin/Cities/Index">Cities</a></li>
+                </ul>
+            </div>
+            <div class="col-md-9 ftco-animate">
+
+                <div class="p-4 mb-2 bg-white">
+                    <h3 class="h5 text-black mb-3">All Freelancers</h3>
+                    @*<p class="mb-0 font-weight-bold" style="color:green">You have <span style="color:red">@Model.TotalConnect</span> Connects remaining.</p>*@
+                    @*<p class="mb-0 font-weight-bold" style="color:green">Do you want to see all freelancers? <a href="~/Admin/AllFreelancer/Index" class="text-primary">click here</a></p>*@
+
+                </div>
+            </div>
+
+            </div>
+
+        </div>
+    <div class="col-md-12 ftco-animate">
+
+        <div class="p-4 mb-0 bg-white">
+            @*<h3 class="h5 text-black mb-3">Cities</h3>*@
+            <!--Table-->
+            <table class="table table-striped  w-auto" id="c_table">
+
+                <!--Table head-->
+                <thead>
+                    <tr>
+                        <th>#</th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.FreelancerName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.TotalConnect)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.City.CityName)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.FreelancerCategory.FreelancerCategoryName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Phone)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EmailVerified)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.VerifiedFlag)
+                        </th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <!--Table head-->
+                <!--Table body-->
+                <tbody>
+                    @{ int count = 0;}
+                    @foreach (var item in Model)
+                    {
+                        { count += 1; }
+
+                        if (count % 2 == 1)
+                        {
+                            <tr class="table-info">
+                                <th scope="row">@count</th>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FreelancerName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TotalConnect)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.City.CityName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FreelancerCategory.FreelancerCategoryName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Phone)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.EmailVerified)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.VerifiedFlag)
+                                </td>
+
+                                <td>
+                                    <a href="~/Admin/AllFreelancer/Edit?id=@item.FreelancerId">Update</a>
+                                    @*<a href="~/Admin/AllFreelancer/Delete?id=@item.FreelancerId">Delete</a>*@
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            <tr>
+                                <th scope="row">@count</th>
+
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FreelancerName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TotalConnect)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.City.CityName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FreelancerCategory.FreelancerCategoryName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Phone)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.EmailVerified)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.VerifiedFlag)
+                                </td>
+
+                                <td>
+                                    <a href="~/Admin/AllFreelancer/Edit?id=@item.FreelancerId">Update</a>
+                                    @*<a href="~/Admin/AllFreelancer/Delete?id=@item.FreelancerId">Delete</a>*@
+                                </td>
+                            </tr>
+                        }
+
+                    }
+                </tbody>
+                <!--Table body-->
+
+
+            </table>
+            <!--Table-->
+        </div>
+    </div>
+</section>
+
+@*<!DOCTYPE html>
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Index</title>
+    </head>
+    <body>
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.City.CityName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FreelancerCategory.FreelancerCategoryName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FreelancerName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FreelancerTitle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FreelancerIntroduction)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalConnect)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Phone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmailVerified)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VerifiedFlag)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Password)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PhotoUrl)
+                </th>
+                <th></th>
+            </tr>
+
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City.CityName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FreelancerCategory.FreelancerCategoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FreelancerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FreelancerTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FreelancerIntroduction)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalConnect)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmailVerified)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VerifiedFlag)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhotoUrl)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.FreelancerId }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.FreelancerId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.FreelancerId })
+                </td>
+            </tr>
+        }
+
+        </table>
+    </body>
+    </html>*@

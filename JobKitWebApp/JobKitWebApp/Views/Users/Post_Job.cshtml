@@ -1,0 +1,99 @@
+﻿@model JobKitWebApp.Models.Job
+@{
+    ViewBag.Title = "Post a Job";
+
+    Layout = "~/Views/Shared/_user_layout.cshtml";
+
+}
+
+@if (ViewBag.JobPostConfirmMsg == null)
+{
+    <div class="ftco-section bg-light">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-12 col-lg-8 mb-5">
+
+                    @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "p-5 bg-white shadow" }))
+                    {
+                        <div class="row form-group">
+                            <div class="col-md-12 mb-3 mb-md-0">
+                                <label class="font-weight-bold" for="fullname">Job Title</label>
+                                @Html.TextBoxFor(x => x.JobTitle, null, new { @class = "form-control", @placeholder = "Job Title", @required = "required" })
+                            </div>
+                        </div>
+                        <div class="row form-group mb-5">
+                            <div class="col-md-12 mb-3 mb-md-0">
+                                <label class="font-weight-bold" for="fullname">Job Description</label>
+                                @Html.TextAreaFor(x => x.JobDescription, new { @class = "form-control", @placeholder = "Job Description", @required = "required" })
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col-md-12"><h3>Job Type</h3></div>
+                            <div class="col-md-12 mb-3 mb-md-0">
+                                @Html.DropDownList("JobTypeId", null, htmlAttributes: new { @class = "form-control" })
+
+                            </div>
+                        </div>
+                        <div class="row form-group mb-4">
+                            <div class="col-md-12"><h3>Freelancer Category</h3></div>
+                            <div class="col-md-12 mb-3 mb-md-0">
+                                @Html.DropDownList("FreelancerCategoryId", null, htmlAttributes: new { @class = "form-control" })
+
+                            </div>
+                        </div>
+                        <div class="row form-group mb-4">
+                            <div class="col-md-12"><h3>Job Location</h3></div>
+                            <div class="col-md-12 mb-3 mb-md-0">
+                                @Html.DropDownList("CityId", null, htmlAttributes: new { @class = "form-control" })
+
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-12"><h3>Budget</h3></div>
+                            <div class="col-md-12 mb-3 mb-md-0">
+                                @Html.TextBoxFor(x => x.Budget, null, new { @class = "form-control", @placeholder = "Job Budget", @required = "required" ,@type="number"})
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <input type="submit" value="Post" class="btn btn-primary  py-2 px-5">
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="col-lg-4">
+
+                    <div class="p-4 mb-3 bg-white shadow">
+                        <h3 class="h5 text-black mb-3">More Info</h3>
+                        <p><a href="#" class="btn btn-primary  py-2 px-4">Learn More</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+else
+{
+    <div class="ftco-section bg-light">
+        <div class="container">
+            <div class="p-4 mb-1 bg-white shadow">
+                <section class="ftco-section-parallax">
+                    <div class="parallax-img d-flex align-items-center">
+                        <div class="container">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+                                    <h2 style="font-size:30px">@ViewBag.JobPostConfirmMsg</h2>
+                                    <center><a href="~/Users/MyJobs" class="btn btn-success" style="color:white">See your posted job?</a></center>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+}

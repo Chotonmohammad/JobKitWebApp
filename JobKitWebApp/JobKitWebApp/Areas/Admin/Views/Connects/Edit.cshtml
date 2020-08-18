@@ -1,0 +1,61 @@
+﻿@model JobKitWebApp.Models.Connect
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<section class="ftco-section ftco-counter">
+    <div class="container">
+        @*<div class="row justify-content-center mb-3 pb-3">
+                <div class="col-md-7 heading-section text-center ftco-animate">
+                    <h2 class="mb-1"><span>Add</span> City</h2>
+                </div>
+            </div>*@
+        <div class="row">
+            <div class="col-md-3 ftco-animate">
+                <ul class="category">
+                    <li><a href="~/Admin/AllFreelancer/Index">Freelancers</a></li>
+
+                    <li><a href="~/Admin/AllUser/Index">Clients</a></li>
+
+                    <li><a href="~/Admin/Connects/Index" style="color:white; background-color:#5dd28e">Connect Payments</a></li>
+
+
+                    <li><a href="~/Admin/ConnectPricings/Index">Connect Pricings</a></li>
+
+                    <li><a href="~/Admin/FreelancerCategories/Index">Freelancer Category</a></li>
+
+                    <li><a href="~/Admin/JobTypes/Index">Job Types</a></li>
+
+                    <li><a href="~/Admin/Cities/Index">Cities</a></li>
+                </ul>
+            </div>
+            <div class="col-md-9 ftco-animate">
+
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "p-5 bg-white" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(model => model.ConnectId)
+                    @Html.HiddenFor(model => model.FreelancerId)
+                    @Html.HiddenFor(model => model.ConnectPriceId)
+
+                    <div class="row form-group">
+                        <div class="col-md-12 mb-3 mb-md-0">
+                            <label class="font-weight-bold" for="fullname">Status</label>
+                            @Html.DropDownListFor(x => x.PaymentStatus, new List<SelectListItem>
+{ new SelectListItem{Text="Confirm", Value="1"},
+new SelectListItem{Text="Pending", Value="-1"}}, "--Select One--", new { @class = "form-control", id = "ConfirmationFlag" })
+
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary py-2 px-5 justify-content-center">Update</button>
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</section>

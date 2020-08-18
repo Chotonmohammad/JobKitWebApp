@@ -1,0 +1,122 @@
+﻿@model IEnumerable<JobKitWebApp.Models.Connect>
+
+@{
+    ViewBag.Title = "Connect Payments";
+
+}
+
+<section class="ftco-section ftco-counter">
+    <div class="container">
+        @*<div class="row justify-content-center mb-3 pb-3">
+                <div class="col-md-7 heading-section text-center ftco-animate">
+                    <h2 class="mb-1"><span></span> Admin</h2>
+                </div>
+            </div>*@
+        <div class="row">
+            <div class="col-md-3 ftco-animate">
+                <ul class="category">
+                    <li><a href="~/Admin/AllFreelancer/Index">Freelancers</a></li>
+
+                    <li><a href="~/Admin/AllUser/Index">Clients</a></li>
+
+                    <li><a href="~/Admin/Connects/Index"  style="color:white; background-color:#5dd28e">Connect Payments</a></li>
+
+
+                    <li><a href="~/Admin/ConnectPricings/Index">Connect Pricings</a></li>
+
+                    <li><a href="~/Admin/FreelancerCategories/Index">Freelancer Category</a></li>
+
+                    <li><a href="~/Admin/JobTypes/Index">Job Types</a></li>
+
+                    <li><a href="~/Admin/Cities/Index">Cities</a></li>
+                </ul>
+            </div>
+            <div class="col-md-9 ftco-animate">
+
+                <div class="p-4 mb-2 bg-white">
+                    <h3 class="h5 text-black mb-3">Connect Payments</h3>
+                    
+                    @*<p class="mb-0 font-weight-bold" style="color:green">You have <span style="color:red">@Model.TotalConnect</span> Connects remaining.</p>*@
+                    @*<p class="mb-0 font-weight-bold" style="color:green">Do you want to add more connect payment? <a href="~/Admin/Connects/Create" class="text-primary">click here</a></p>*@
+
+                </div>
+                <div class="p-4 mb-0 bg-white">
+                    @*<h3 class="h5 text-black mb-3">Cities</h3>*@
+                    <!--Table-->
+                    <table class="table table-striped" id="c_table">
+
+                        <!--Table head-->
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Freelancer Name</th>
+                                <th>Reference</th>
+                                <th>Payment Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <!--Table head-->
+                        <!--Table body-->
+                        <tbody>
+                            @{ int count = 0;}
+                            @foreach (var item in Model)
+                            {
+                                { count += 1; }
+
+                                if (count % 2 == 1)
+                                {
+                                    <tr class="table-info">
+                                        <th scope="row">@count</th>
+                                        <th>@item.Freelancer.FreelancerName</th>
+                                        <th>@item.Refernce</th>
+                                        @if (@item.PaymentStatus == 1)
+                                        {
+                                            <th>Complete</th>
+                                        }
+                                        else
+                                        {
+                                            <th>Pending</th>
+
+                                        }
+
+                                        <td>
+                                            <a href="~/Admin/Connects/Edit?id=@item.ConnectId">Payment Update</a>
+                                            @*<a href="~/Admin/Cities/Delete?id=@item.ConnectId">Delete</a>*@
+                                        </td>
+                                    </tr>
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <th scope="row">@count</th>
+                                        <th>@item.Freelancer.FreelancerName</th>
+                                        <th>@item.Refernce</th>
+                                        @if (@item.PaymentStatus == 1)
+                                        {
+                                            <th>Complete</th>
+                                        }
+                                        else
+                                        {
+                                            <th>Pending</th>
+
+                                        }
+
+                                        <td>
+                                            <a href="~/Admin/Connects/Edit?id=@item.ConnectId">Payment Update</a>
+                                            @*<a href="~/Admin/Cities/Delete?id=@item.ConnectId">Delete</a>*@
+                                        </td>
+                                    </tr>
+                                }
+
+                            }
+                        </tbody>
+                        <!--Table body-->
+
+
+                    </table>
+                    <!--Table-->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

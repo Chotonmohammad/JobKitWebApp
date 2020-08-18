@@ -1,0 +1,189 @@
+﻿@model JobKitWebApp.Models.ApplyJob
+
+@{
+    ViewBag.Title = "FreelancerFeedback";
+}
+
+@section styles{
+    <style>
+
+        .anyClass {
+            height: 400px;
+            overflow-y: auto;
+        }
+    </style>
+    
+    }
+
+<section class="ftco-section ftco-degree-bg bg-transparent">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 ftco-animate">
+                <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center shadow">
+                    <div class="mb-0 mb-md-0 mr-5">
+                        <div class="job-post-item-header d-flex align-items-center">
+                            <h2 class="mr-3 text-black h3">@Model.Job.JobTitle</h2>
+                            <div class="badge-wrap">
+                                <span class="bg-primary text-white badge py-2 px-3">@Model.Job.JobType.JobTypeName</span>
+                                @if (@Model.Job.ApplyJobs.Any(t => t.JobConfirmFlag == 1))
+                                {
+                                    <span class="bg-success text-white badge py-2 px-3">Freelancer Win</span>
+                                }
+                                else
+                                {
+                                    <span class="bg-warning text-white badge py-2 px-3">Pending</span>
+
+                                }
+                            </div>
+                        </div>
+                        <div class="justify-content-center">
+                            <p class="justify-content-between">@Model.Job.JobDescription</p>
+                        </div>
+                        <div class="badge-wrap">
+                            <span class="bg-success text-white badge py-2 px-3 mb-2">BUDGET: BDT @Model.Job.Budget</span>
+                        </div>
+                        <div class="job-post-item-body d-block d-md-flex">
+                            <div class="mr-3"><span class="icon-layers"></span> <a href="#">@Model.Job.User.Name</a></div>
+                            <div class="mr-3"><span class="icon-my_location"></span> <span>@Model.Job.City.CityName</span></div>
+                            <div><span class="icon-add_alert"></span> <span>@Model.Job.FreelancerCategory.FreelancerCategoryName</span></div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:@Model.Job.WorkProgess%">
+                                @Model.Job.WorkProgess% complete
+                            </div>
+                        </div>
+                    </div>
+                    @*<div class="ml-auto d-flex">
+                    <a href="~/Users/View_Proposals?id=@Model.JobId" class="btn btn-primary py-2 mr-1">View Proposals</a>
+                </div>*@
+                </div>
+            </div>
+            <div class="container">
+                <div class="p-4 mb-3 bg-white shadow" role="alert">
+                    <center><a class="btn btn-primary">Feedbacks</a></center>
+                </div>
+
+                <div class="row ">
+
+                    <div class="col-md-12 col-lg-8 anyClass" id="scroll_down">
+
+
+                        <form action="#" class="p-5 bg-white shadow">
+
+                            @foreach (var reply in Model.ApplyJobConversations)
+                            {
+                                if (reply.ConversationTypeFlag == 2)
+                                {
+                                    <div class="row form-group mb-3">
+                                        <div class="col-md-12 mb-0 mb-md-0">
+                                            <div class="float-left">
+                                                <div class="alert alert-primary ">
+                                                    @reply.Reply
+                                                </div>
+                                                <span style="font-size:12px">@reply.DateTime</span>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                else if(reply.ConversationTypeFlag == 1)
+                                {
+                                    <div class="row form-group mb-3">
+                                        <div class="col-md-12 mb-0 mb-md-0  ">
+                                            <div class="float-right">
+                                                <div class="alert alert-success">
+                                                    @reply.Reply
+
+                                                </div>
+                                                <span style="font-size:12px">@reply.DateTime</span>
+
+                                            </div>
+                                            
+                                        </div>
+                                        
+                                    </div>
+                                }
+                            }
+                            <input type="text" id="jobapplyid" class="form-control" value="@Model.ApplyJobId" style="display:none">
+
+                            <div class="row form-group mb-1">
+                                <div class="col-md-12 mb-3 mb-md-0">
+                                    <input type="text" id="reply" class="form-control" placeholder="Send a Message">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <button type="button" class="btn btn-primary float-right py-2 px-5" id="reply_button">Send</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="p-4 mb-3 bg-white shadow">
+                            <h3 class="h5 text-black mb-3">Client Contact Info</h3>
+                            <p class="mb-0 font-weight-bold">Phone</p>
+                            <p class="mb-4"><a href="#">@Model.Job.User.Name</a></p>
+
+                            <p class="mb-0 font-weight-bold">Phone</p>
+                            <p class="mb-4"><a href="#">@Model.Job.User.Phone</a></p>
+
+                            <p class="mb-0 font-weight-bold">Email Address</p>
+                            <p class="mb-4"><a href="#">@Model.Job.User.Email</a></p>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+@section scripts{
+<script>
+        $(document).ready(function () {
+            $("#reply_button").on("click", function (e) {
+                e.preventDefault();
+                var Reply = $("#reply").val();
+                var JobApplyId = $("#jobapplyid").val();
+                if (Reply == "" || JobApplyId == "") {
+                    alert("Please Write a Message.");
+                    return;
+                }
+                //location.href = "/FindWorks/Jobs?FreelancerCategoryId=" + freelancerCategoryId + "&JobTypeId=" + jobTypeId + "&CityId=" + cityId;
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Inbox/FreelancerReply/",
+                    data:
+                    {
+                        Reply: Reply,
+                        JobApplyId: JobApplyId
+                    },
+                    success: function (resp)
+                    {
+                        if (resp.error) {
+                            alert(resp.error_msg);
+                        }
+                        else {
+                            location.href = resp.url;
+                        }
+                    },
+                    error: function (result) {
+                        alert('error');
+                    }
+                });
+            });
+    });
+
+    $('#scroll_down').animate({ scrollTop: $('#scroll_down').prop("scrollHeight") }, 500);
+</script>
+    
+    }
+

@@ -1,0 +1,44 @@
+﻿@model JobKitWebApp.Models.Freelancer
+@{
+    ViewBag.Title = "Add Connects";
+}
+
+
+<section class="ftco-section ftco-counter">
+    <div class="container">
+        <div class="row justify-content-center mb-3 pb-3">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <h2 class="mb-1"><span>Add</span> Connects</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 ftco-animate">
+                <ul class="category">
+                    <li><a href="~/Settings/ProfileIntroduction">Profile Introduction</a></li>
+                    <li><a href="~/Freelancers/ProfileInfo">My Profile</a></li>
+                    <li><a href="~/Settings/ContactInfo">Contact Info</a></li>
+                    <li><a href="~/Settings/Connects" style="color:white; background-color:#5dd28e">Connects</a></li>
+                </ul>
+            </div>
+            <div class="col-md-9 ftco-animate">
+
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "p-5 bg-white" }))
+                {
+                    <div class="row form-group">
+                        <div class="col-md-12 mb-3 mb-md-0">
+                            <label class="font-weight-bold" for="fullname">Select</label>
+                            @Html.DropDownList("ConnectPriceId", null, htmlAttributes: new { @class = "form-control", @required = "@required" })
+
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary py-2 px-5 justify-content-center">Add</button>
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</section>

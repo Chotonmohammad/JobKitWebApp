@@ -1,0 +1,44 @@
+﻿@model JobKitWebApp.Models.Job
+
+@{
+    ViewBag.Title = "Work Update";
+
+}
+
+<section class="ftco-section ftco-counter">
+    <div class="container">
+        <div class="row justify-content-center mb-3 pb-3">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <h2 class="mb-1"><span>Work</span> Update</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 ftco-animate">
+                <ul class="category">
+                    <li><a href="~/Jobs/WorkUpdate?JobId=@Model.JobId" style="color:white; background-color:#5dd28e">Work Update</a></li>
+                </ul>
+            </div>
+            <div class="col-md-9 ftco-animate">
+
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "p-5 bg-white" }))
+                {
+                    @Html.TextBoxFor(x => x.JobId, null, new { @style="display:none"})
+                    <div class="row form-group">
+                        <div class="col-md-12 mb-3 mb-md-0">
+                            <label class="font-weight-bold" for="fullname">Select</label>
+                            @Html.DropDownListFor(x => x.WorkProgess, new List<SelectListItem>
+{ new SelectListItem{Text="0% Complete", Value="0"},
+new SelectListItem{Text="25% Complete", Value="25"},new SelectListItem{Text="50% Complete", Value="50"},new SelectListItem{Text="75% Complete", Value="75" },new SelectListItem{Text="100% Complete", Value="100"}}, new { @class = "form-control", id = "WorkProgess" })
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary py-2 px-5 justify-content-center">Update</button>
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</section>

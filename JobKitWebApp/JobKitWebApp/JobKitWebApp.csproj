@@ -1,0 +1,638 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{33E46CC7-70C4-4942-9BD8-77703E2C8C79}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JobKitWebApp</RootNamespace>
+    <AssemblyName>JobKitWebApp</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AllFreelancerController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AllUserController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CitiesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ConnectPricingsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ConnectsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\FreelancerCategoriesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\JobTypesController.cs" />
+    <Compile Include="Context\JobKitDbContext.cs" />
+    <Compile Include="Controllers\FindWorksController.cs" />
+    <Compile Include="Controllers\FreelancersController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\AccountsController.cs" />
+    <Compile Include="Controllers\InboxController.cs" />
+    <Compile Include="Controllers\JobsController.cs" />
+    <Compile Include="Controllers\MyProfileController.cs" />
+    <Compile Include="Controllers\SettingsController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001102246069_v1.cs" />
+    <Compile Include="Migrations\202001102246069_v1.designer.cs">
+      <DependentUpon>202001102246069_v1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001102248383_v2.cs" />
+    <Compile Include="Migrations\202001102248383_v2.designer.cs">
+      <DependentUpon>202001102248383_v2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001121247219_v3.cs" />
+    <Compile Include="Migrations\202001121247219_v3.designer.cs">
+      <DependentUpon>202001121247219_v3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001121258313_v4.cs" />
+    <Compile Include="Migrations\202001121258313_v4.designer.cs">
+      <DependentUpon>202001121258313_v4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001121329259_v5.cs" />
+    <Compile Include="Migrations\202001121329259_v5.designer.cs">
+      <DependentUpon>202001121329259_v5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001142114226_v11.cs" />
+    <Compile Include="Migrations\202001142114226_v11.designer.cs">
+      <DependentUpon>202001142114226_v11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001142309519_v6.cs" />
+    <Compile Include="Migrations\202001142309519_v6.designer.cs">
+      <DependentUpon>202001142309519_v6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001142321011_v7.cs" />
+    <Compile Include="Migrations\202001142321011_v7.designer.cs">
+      <DependentUpon>202001142321011_v7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001170341063_v8.cs" />
+    <Compile Include="Migrations\202001170341063_v8.designer.cs">
+      <DependentUpon>202001170341063_v8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001221145545_v9.cs" />
+    <Compile Include="Migrations\202001221145545_v9.designer.cs">
+      <DependentUpon>202001221145545_v9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002082141119_v10.cs" />
+    <Compile Include="Migrations\202002082141119_v10.designer.cs">
+      <DependentUpon>202002082141119_v10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002102005062_v101.cs" />
+    <Compile Include="Migrations\202002102005062_v101.designer.cs">
+      <DependentUpon>202002102005062_v101.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002102010530_v12.cs" />
+    <Compile Include="Migrations\202002102010530_v12.designer.cs">
+      <DependentUpon>202002102010530_v12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002102013553_v13.cs" />
+    <Compile Include="Migrations\202002102013553_v13.designer.cs">
+      <DependentUpon>202002102013553_v13.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002102306250_v14.cs" />
+    <Compile Include="Migrations\202002102306250_v14.designer.cs">
+      <DependentUpon>202002102306250_v14.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002151935324_v141.cs" />
+    <Compile Include="Migrations\202002151935324_v141.designer.cs">
+      <DependentUpon>202002151935324_v141.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003072004193_v15.cs" />
+    <Compile Include="Migrations\202003072004193_v15.designer.cs">
+      <DependentUpon>202003072004193_v15.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\ApplyJob.cs" />
+    <Compile Include="Models\ApplyJobConversation.cs" />
+    <Compile Include="Models\City.cs" />
+    <Compile Include="Models\Connect.cs" />
+    <Compile Include="Models\ConnectPricing.cs" />
+    <Compile Include="Models\Freelancer.cs" />
+    <Compile Include="Models\FreelancerCategory.cs" />
+    <Compile Include="Models\FreelancerFeedback.cs" />
+    <Compile Include="Models\Job.cs" />
+    <Compile Include="Models\JobType.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserFeedback.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\css\ajax-loader.gif" />
+    <Content Include="Assets\css\animate.css" />
+    <Content Include="Assets\css\aos.css" />
+    <Content Include="Assets\css\bootstrap-datepicker.css" />
+    <Content Include="Assets\css\bootstrap.min.css" />
+    <Content Include="Assets\css\bootstrap\bootstrap-grid.css" />
+    <Content Include="Assets\css\bootstrap\bootstrap-reboot.css" />
+    <Content Include="Assets\css\css\bootstrap-reboot.css" />
+    <Content Include="Assets\css\css\mixins\_text-hide.css" />
+    <Content Include="Assets\css\flaticon.css" />
+    <Content Include="Assets\css\icomoon.css" />
+    <Content Include="Assets\css\ionicons.min.css" />
+    <Content Include="Assets\css\jquery.timepicker.css" />
+    <Content Include="Assets\css\magnific-popup.css" />
+    <Content Include="Assets\css\open-iconic-bootstrap.min.css" />
+    <Content Include="Assets\css\owl.carousel.min.css" />
+    <Content Include="Assets\css\owl.theme.default.min.css" />
+    <Content Include="Assets\css\style.css" />
+    <Content Include="Assets\fonts\flaticon\backup.txt" />
+    <Content Include="Assets\fonts\flaticon\font\flaticon.css" />
+    <Content Include="Assets\fonts\flaticon\font\flaticon.html" />
+    <Content Include="Assets\fonts\flaticon\font\Flaticon.svg" />
+    <Content Include="Assets\fonts\icomoon\icomoon.svg" />
+    <Content Include="Assets\fonts\ionicons\css\ionicons.min.css" />
+    <Content Include="Assets\fonts\ionicons\fonts\ionicons.svg" />
+    <Content Include="Assets\fonts\open-iconic\open-iconic.svg" />
+    <Content Include="Assets\images\about.jpg" />
+    <Content Include="Assets\images\bg_1.jpg" />
+    <Content Include="Assets\images\bg_2.jpg" />
+    <Content Include="Assets\images\image_1.jpg" />
+    <Content Include="Assets\images\image_2.jpg" />
+    <Content Include="Assets\images\image_3.jpg" />
+    <Content Include="Assets\images\image_4.jpg" />
+    <Content Include="Assets\images\image_5.jpg" />
+    <Content Include="Assets\images\image_6.jpg" />
+    <Content Include="Assets\images\image_7.jpg" />
+    <Content Include="Assets\images\image_8.jpg" />
+    <Content Include="Assets\images\loc.png" />
+    <Content Include="Assets\images\person_1.jpg" />
+    <Content Include="Assets\images\person_2.jpg" />
+    <Content Include="Assets\images\person_3.jpg" />
+    <Content Include="Assets\images\person_4.jpg" />
+    <Content Include="Assets\js\aos.js" />
+    <Content Include="Assets\js\bootstrap-datepicker.js" />
+    <Content Include="Assets\js\bootstrap.min.js" />
+    <Content Include="Assets\js\google-map.js" />
+    <Content Include="Assets\js\jquery-3.2.1.min.js" />
+    <Content Include="Assets\js\jquery-migrate-3.0.1.min.js" />
+    <Content Include="Assets\js\jquery.animateNumber.min.js" />
+    <Content Include="Assets\js\jquery.easing.1.3.js" />
+    <Content Include="Assets\js\jquery.magnific-popup.min.js" />
+    <Content Include="Assets\js\jquery.min.js" />
+    <Content Include="Assets\js\jquery.stellar.min.js" />
+    <Content Include="Assets\js\jquery.waypoints.min.js" />
+    <Content Include="Assets\js\main.js" />
+    <Content Include="Assets\js\owl.carousel.min.js" />
+    <Content Include="Assets\js\popper.min.js" />
+    <Content Include="Assets\js\range.js" />
+    <Content Include="Assets\js\scrollax.min.js" />
+    <Content Include="Content\background.jpeg" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\mail_header_footer\header.png" />
+    <Content Include="Content\mail_header_footer\footer.png" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Cities\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Cities\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Cities\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Cities\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Cities\Index.cshtml" />
+    <Content Include="Assets\css\.DS_Store" />
+    <Content Include="Assets\css\bootstrap\.DS_Store" />
+    <Content Include="Assets\css\css\.DS_Store" />
+    <Content Include="Assets\fonts\.DS_Store" />
+    <Content Include="Assets\fonts\flaticon\.DS_Store" />
+    <Content Include="Assets\fonts\flaticon\font\Flaticon.eot" />
+    <Content Include="Assets\fonts\flaticon\font\Flaticon.ttf" />
+    <Content Include="Assets\fonts\flaticon\font\Flaticon.woff" />
+    <Content Include="Assets\fonts\flaticon\font\_flaticon.scss" />
+    <Content Include="Assets\fonts\flaticon\license\license.pdf" />
+    <Content Include="Assets\fonts\icomoon\icomoon.eot" />
+    <Content Include="Assets\fonts\icomoon\icomoon.ttf" />
+    <Content Include="Assets\fonts\icomoon\icomoon.woff" />
+    <Content Include="Assets\fonts\ionicons\css\_ionicons.scss" />
+    <Content Include="Assets\fonts\ionicons\fonts\.DS_Store" />
+    <Content Include="Assets\fonts\ionicons\fonts\ionicons.eot" />
+    <Content Include="Assets\fonts\ionicons\fonts\ionicons.ttf" />
+    <Content Include="Assets\fonts\ionicons\fonts\ionicons.woff" />
+    <Content Include="Assets\fonts\ionicons\fonts\ionicons.woff2" />
+    <Content Include="Assets\fonts\open-iconic\open-iconic.eot" />
+    <Content Include="Assets\fonts\open-iconic\open-iconic.otf" />
+    <Content Include="Assets\fonts\open-iconic\open-iconic.ttf" />
+    <Content Include="Assets\fonts\open-iconic\open-iconic.woff" />
+    <Content Include="Assets\images\.DS_Store" />
+    <Content Include="Assets\js\.DS_Store" />
+    <Content Include="Assets\scss\.DS_Store" />
+    <Content Include="Assets\scss\bootstrap\bootstrap-grid.scss" />
+    <Content Include="Assets\scss\bootstrap\bootstrap-reboot.scss" />
+    <Content Include="Assets\scss\bootstrap\bootstrap.scss" />
+    <Content Include="Assets\scss\bootstrap\mixins\_alert.scss" />
+    <Content Include="Assets\scss\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="Assets\scss\bootstrap\mixins\_badge.scss" />
+    <Content Include="Assets\scss\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="Assets\scss\bootstrap\mixins\_box-shadow.scss" />
+    <Content Include="Assets\scss\bootstrap\mixins\_breakpoints.scss" />
+    <Content Include="Assets\scss\bootstrap\mixins\_buttons.scss" />
+    <Content Include="Assets\scss\bootstrap\mixins\_caret.scss" />
+    <Content Include="Assets\scss\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="Assets\scss\bootstrap\mixins\_float.scss" />
+    <Content Include="Assets\scss\bootstrap\mixins\_forms.scss" />
+    <Content Include="Assets\scss\bootstrap\mixins\_gradients.scss" />
+    <Content Include="Assets\scss\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="Assets\scss\bootstrap\mixins\_grid.scss" />
+    <Content Include="Assets\scss\bootstrap\mixins\_hover.scss" />
+    <Content Include="Assets\scss\bootstrap\mixins\_image.scss" />
+    <Content Include="Assets\scss\bootstrap\mixins\_list-group.scss" />
+    <Content Include="Assets\scss\bootstrap\mixins\_lists.scss" />
+    <Content Include="Assets\scss\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="Assets\scss\bootstrap\mixins\_pagination.scss" />
+    <Content Include="Assets\scss\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="Assets\scss\bootstrap\mixins\_resize.scss" />
+    <Content Include="Assets\scss\bootstrap\mixins\_screen-reader.scss" />
+    <Content Include="Assets\scss\bootstrap\mixins\_size.scss" />
+    <Content Include="Assets\scss\bootstrap\mixins\_table-row.scss" />
+    <Content Include="Assets\scss\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="Assets\scss\bootstrap\mixins\_text-hide.scss" />
+    <Content Include="Assets\scss\bootstrap\mixins\_text-truncate.scss" />
+    <Content Include="Assets\scss\bootstrap\mixins\_transition.scss" />
+    <Content Include="Assets\scss\bootstrap\mixins\_visibility.scss" />
+    <Content Include="Assets\scss\bootstrap\utilities\_align.scss" />
+    <Content Include="Assets\scss\bootstrap\utilities\_background.scss" />
+    <Content Include="Assets\scss\bootstrap\utilities\_borders.scss" />
+    <Content Include="Assets\scss\bootstrap\utilities\_clearfix.scss" />
+    <Content Include="Assets\scss\bootstrap\utilities\_display.scss" />
+    <Content Include="Assets\scss\bootstrap\utilities\_embed.scss" />
+    <Content Include="Assets\scss\bootstrap\utilities\_flex.scss" />
+    <Content Include="Assets\scss\bootstrap\utilities\_float.scss" />
+    <Content Include="Assets\scss\bootstrap\utilities\_position.scss" />
+    <Content Include="Assets\scss\bootstrap\utilities\_screenreaders.scss" />
+    <Content Include="Assets\scss\bootstrap\utilities\_shadows.scss" />
+    <Content Include="Assets\scss\bootstrap\utilities\_sizing.scss" />
+    <Content Include="Assets\scss\bootstrap\utilities\_spacing.scss" />
+    <Content Include="Assets\scss\bootstrap\utilities\_text.scss" />
+    <Content Include="Assets\scss\bootstrap\utilities\_visibility.scss" />
+    <Content Include="Assets\scss\bootstrap\_alert.scss" />
+    <Content Include="Assets\scss\bootstrap\_badge.scss" />
+    <Content Include="Assets\scss\bootstrap\_breadcrumb.scss" />
+    <Content Include="Assets\scss\bootstrap\_button-group.scss" />
+    <Content Include="Assets\scss\bootstrap\_buttons.scss" />
+    <Content Include="Assets\scss\bootstrap\_card.scss" />
+    <Content Include="Assets\scss\bootstrap\_carousel.scss" />
+    <Content Include="Assets\scss\bootstrap\_close.scss" />
+    <Content Include="Assets\scss\bootstrap\_code.scss" />
+    <Content Include="Assets\scss\bootstrap\_custom-forms.scss" />
+    <Content Include="Assets\scss\bootstrap\_dropdown.scss" />
+    <Content Include="Assets\scss\bootstrap\_forms.scss" />
+    <Content Include="Assets\scss\bootstrap\_functions.scss" />
+    <Content Include="Assets\scss\bootstrap\_grid.scss" />
+    <Content Include="Assets\scss\bootstrap\_images.scss" />
+    <Content Include="Assets\scss\bootstrap\_input-group.scss" />
+    <Content Include="Assets\scss\bootstrap\_jumbotron.scss" />
+    <Content Include="Assets\scss\bootstrap\_list-group.scss" />
+    <Content Include="Assets\scss\bootstrap\_media.scss" />
+    <Content Include="Assets\scss\bootstrap\_mixins.scss" />
+    <Content Include="Assets\scss\bootstrap\_modal.scss" />
+    <Content Include="Assets\scss\bootstrap\_nav.scss" />
+    <Content Include="Assets\scss\bootstrap\_navbar.scss" />
+    <Content Include="Assets\scss\bootstrap\_pagination.scss" />
+    <Content Include="Assets\scss\bootstrap\_popover.scss" />
+    <Content Include="Assets\scss\bootstrap\_print.scss" />
+    <Content Include="Assets\scss\bootstrap\_progress.scss" />
+    <Content Include="Assets\scss\bootstrap\_reboot.scss" />
+    <Content Include="Assets\scss\bootstrap\_root.scss" />
+    <Content Include="Assets\scss\bootstrap\_tables.scss" />
+    <Content Include="Assets\scss\bootstrap\_tooltip.scss" />
+    <Content Include="Assets\scss\bootstrap\_transitions.scss" />
+    <Content Include="Assets\scss\bootstrap\_type.scss" />
+    <Content Include="Assets\scss\bootstrap\_utilities.scss" />
+    <Content Include="Assets\scss\bootstrap\_variables.scss" />
+    <Content Include="Assets\scss\style.scss" />
+    <Content Include="libman.json" />
+    <Content Include="Areas\Admin\Views\FreelancerCategories\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\FreelancerCategories\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\FreelancerCategories\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\FreelancerCategories\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\FreelancerCategories\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ConnectPricings\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ConnectPricings\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\ConnectPricings\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\ConnectPricings\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ConnectPricings\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\JobTypes\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\JobTypes\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\JobTypes\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\JobTypes\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\JobTypes\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Connects\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Connects\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Connects\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Connects\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Connects\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AllFreelancer\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AllFreelancer\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\AllFreelancer\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\AllFreelancer\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AllFreelancer\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AllUser\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AllUser\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\AllUser\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\AllUser\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AllUser\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AllFreelancer\ViewAll.cshtml" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\User\SignIn.cshtml" />
+    <Content Include="Views\User\SignUp.cshtml" />
+    <Content Include="Views\User\Verify.cshtml" />
+    <Content Include="Views\Freelancers\ProfileInfo.cshtml" />
+    <Content Include="Views\MyProfile\Settings.cshtml" />
+    <Content Include="Views\MyProfile\ContactInfo.cshtml" />
+    <Content Include="Views\FindWorks\Index.cshtml" />
+    <Content Include="Views\FindWorks\Jobs.cshtml" />
+    <Content Include="Views\Jobs\NewPost.cshtml" />
+    <Content Include="Views\User\Home.cshtml" />
+    <Content Include="Views\Shared\_freelancers_layout.cshtml" />
+    <Content Include="Views\Settings\ProfileIntroduction.cshtml" />
+    <Content Include="Views\Settings\ContactInfo.cshtml" />
+    <Content Include="Views\Settings\Connects.cshtml" />
+    <Content Include="Views\FindWorks\ApplyJob.cshtml" />
+    <Content Include="Views\MyProfile\Jobs.cshtml" />
+    <Content Include="Views\Accounts\SignIn.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Users\ProfileInfo.cshtml" />
+    <Content Include="Views\Users\Home.cshtml" />
+    <Content Include="Views\Shared\_user_layout.cshtml" />
+    <Content Include="Views\Users\MyJobs.cshtml" />
+    <Content Include="Views\Users\Post_Job.cshtml" />
+    <Content Include="Views\Users\View_Proposals.cshtml" />
+    <Content Include="Views\Users\ViewMode.cshtml" />
+    <Content Include="Views\Accounts\F_SignUp.cshtml" />
+    <Content Include="Views\Accounts\FreelancerVerify.cshtml" />
+    <Content Include="Views\Accounts\F_Verify.cshtml" />
+    <Content Include="Views\Accounts\U_SignUp.cshtml" />
+    <Content Include="Views\Accounts\SignUp.cshtml" />
+    <Content Include="Views\Accounts\U_Verify.cshtml" />
+    <Content Include="Views\Settings\Add_Connects.cshtml" />
+    <Content Include="Views\Settings\Payment_Procedure.cshtml" />
+    <Content Include="Views\Home\Admin.cshtml" />
+    <Content Include="Views\Users\Inbox.cshtml" />
+    <Content Include="Views\FindWorks\Home.cshtml" />
+    <Content Include="Views\Inbox\FreelancerReply.cshtml" />
+    <Content Include="Views\Inbox\UserReply.cshtml" />
+    <Content Include="Views\Jobs\WorkUpdate.cshtml" />
+    <Content Include="Views\Users\PaymentProcedure.cshtml" />
+    <Content Include="Views\Users\UserFeedback.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202001102246069_v1.resx">
+      <DependentUpon>202001102246069_v1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001102248383_v2.resx">
+      <DependentUpon>202001102248383_v2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001121247219_v3.resx">
+      <DependentUpon>202001121247219_v3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001121258313_v4.resx">
+      <DependentUpon>202001121258313_v4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001121329259_v5.resx">
+      <DependentUpon>202001121329259_v5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001142114226_v11.resx">
+      <DependentUpon>202001142114226_v11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001142309519_v6.resx">
+      <DependentUpon>202001142309519_v6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001142321011_v7.resx">
+      <DependentUpon>202001142321011_v7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001170341063_v8.resx">
+      <DependentUpon>202001170341063_v8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001221145545_v9.resx">
+      <DependentUpon>202001221145545_v9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002082141119_v10.resx">
+      <DependentUpon>202002082141119_v10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002102005062_v101.resx">
+      <DependentUpon>202002102005062_v101.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002102010530_v12.resx">
+      <DependentUpon>202002102010530_v12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002102013553_v13.resx">
+      <DependentUpon>202002102013553_v13.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002102306250_v14.resx">
+      <DependentUpon>202002102306250_v14.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002151935324_v141.resx">
+      <DependentUpon>202002151935324_v141.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003072004193_v15.resx">
+      <DependentUpon>202003072004193_v15.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>58333</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:58333/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

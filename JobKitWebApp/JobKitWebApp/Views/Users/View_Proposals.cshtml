@@ -1,0 +1,223 @@
+﻿@model JobKitWebApp.Models.Job
+
+@{
+    ViewBag.Title = "View Proposals";
+    Layout = "~/Views/Shared/_user_layout.cshtml";
+}
+
+@*<section class="ftco-section bg-light">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <span class="subheading">Recently Added Jobs</span>
+                <h2 class="mb-4"><span>My</span> Posted Jobs</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 ftco-animate">
+                <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
+                    <div class="mb-4 mb-md-0 mr-5">
+                        <div class="job-post-item-header d-flex align-items-center">
+                            <h2 class="mr-3 text-black h3">@Model.JobTitle</h2>
+                            <div class="badge-wrap">
+                                <span class="bg-primary text-white badge py-2 px-3">@Model.JobType.JobTypeName</span>
+                                @if (@Model.ApplyJobs.Any(t => t.JobConfirmFlag == 1))
+                                {
+                                    <span class="bg-success text-white badge py-2 px-3">Freelancer Win</span>
+                                }
+                                else
+                                {
+                                    <span class="bg-warning text-white badge py-2 px-3">Pending</span>
+
+                                }
+                            </div>
+                        </div>
+                        <div class="justify-content-center">
+                            <p class="justify-content-between">@Model.JobDescription</p>
+                        </div>
+                        <div class="badge-wrap">
+                            <span class="bg-success text-white badge py-2 px-3 mb-2">BUDGET: BDT @Model.Budget</span>
+                        </div>
+                        <div class="job-post-item-body d-block d-md-flex">
+                            <div class="mr-3"><span class="icon-layers"></span> <a href="#">@Model.User.UserName</a></div>
+                            <div class="mr-3"><span class="icon-my_location"></span> <span>@Model.City.CityName</span></div>
+                            <div><span class="icon-add_alert"></span> <span>@Model.FreelancerCategory.FreelancerCategoryName</span></div>
+                        </div>
+                    </div>
+                    <div class="ml-auto d-flex">
+                        <a href="~/Users/View_Proposals?id=@Model.JobId" class="btn btn-primary py-2 mr-1">View Proposals</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>*@
+<section class="ftco-section ftco-degree-bg bg-transparent">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 ftco-animate">
+                <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center shadow">
+                    <div class="mb-4 mb-md-0 mr-5">
+                        <div class="job-post-item-header d-flex align-items-center">
+                            <h2 class="mr-3 text-black h3">@Model.JobTitle</h2>
+                            <div class="badge-wrap">
+                                <span class="bg-primary text-white badge py-2 px-3">@Model.JobType.JobTypeName</span>
+                                @if (@Model.ApplyJobs.Any(t => t.JobConfirmFlag == 1))
+                                {
+                                    <span class="bg-success text-white badge py-2 px-3">Freelancer Win</span>
+                                }
+                                else
+                                {
+                                    <span class="bg-warning text-white badge py-2 px-3">Pending</span>
+
+                                }
+                            </div>
+                        </div>
+                        <div class="justify-content-center">
+                            <p class="justify-content-between">@Model.JobDescription</p>
+                        </div>
+                        <div class="badge-wrap">
+                            <span class="bg-success text-white badge py-2 px-3 mb-2">BUDGET: BDT @Model.Budget</span>
+                        </div>
+                        <div class="job-post-item-body d-block d-md-flex">
+                            <div class="mr-3"><span class="icon-layers"></span> <a href="#">@Model.User.Name</a></div>
+                            <div class="mr-3"><span class="icon-my_location"></span> <span>@Model.City.CityName</span></div>
+                            <div><span class="icon-add_alert"></span> <span>@Model.FreelancerCategory.FreelancerCategoryName</span></div>
+                        </div>
+                    </div>
+                    @*<div class="ml-auto d-flex">
+                        <a href="~/Users/View_Proposals?id=@Model.JobId" class="btn btn-primary py-2 mr-1">View Proposals</a>
+                    </div>*@
+                </div>
+            </div>
+            <div class="col-md-8 ftco-animate">
+                <div class="pt-2 mt-2">
+                    <h3 class="mb-2">Proposals</h3>
+                    <ul class="comment-list">
+                        @{
+                            var items = (List<JobKitWebApp.Models.ApplyJob>)ViewBag.JobProposals;
+
+
+
+                        }
+
+
+
+                        @if (ViewBag.JobProposals.Count > 0)
+                        {
+                            if (@Model.ApplyJobs.Exists(a => a.JobConfirmFlag == 1))
+                            {
+                                foreach (var item in ViewBag.JobProposals)
+                                {
+
+
+                                    if (item.JobConfirmFlag == 1)
+                                    {
+                                        <li class="comment">
+                                            <div class="comment-body p-4 shadow">
+                                                <div class="job-post-item-header d-flex align-items-center">
+                                                    <div class="mr-3"><span class="icon-layers"></span> <a target="_blank" href="~/Users/ViewMode?freelancer_id=@item.Freelancer.FreelancerId">@item.Freelancer.FreelancerName</a></div>
+                                                    <div class="mr-3"><span class="icon-phone"></span> <span>@item.Freelancer.Phone</span></div>
+
+                                                    <div class="badge-wrap">
+                                                        @if (@item.JobConfirmFlag == 1)
+                                                        {
+                                                            <span class="bg-warning text-white badge py-2 px-3">Job Winnner</span>
+                                                        }
+                                                    </div>
+                                                </div>
+
+                                                <div class="meta">@item.DateTime</div>
+                                                <p>@item.CoverMessage</p>
+
+                                                @if (@item.JobConfirmFlag == 1)
+                                                {
+                                                    <p><a href="~/Inbox/UserReply?jobApplyId=@item.ApplyJobId" class="btn btn-success">Inbox</a></p>
+                                                    <p><a href="~/Users/PaymentProcedure" class="btn btn-success">Payment Procedure</a></p>
+
+                                                    <div class="progress">
+                                                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:@item.Job.WorkProgess%">
+                                                            @item.Job.WorkProgess% complete
+                                                        </div>
+                                                    </div>
+                                                    <br />
+                                                    <p><a href="~/Users/UserFeedback?jobApplyId=@item.ApplyJobId" class="btn btn-success">My Feedback</a></p>
+
+                                                    foreach (var a in @item.UserFeedbacks)
+                                                    {
+                                                        <p>@a.UserReply</p>
+                                                    }
+
+
+                                                }
+
+                                                @if (Model.JobActiveFlag != 1)
+                                                {
+                                                    <p><a href="~/Users/Confirm_Freelancer?apply_job_id=@item.ApplyJobId" class="btn btn-success">Confirm Freelancer</a></p>
+
+                                                }
+                                            </div>
+                                        </li>
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                foreach (var item in ViewBag.JobProposals)
+                                {
+
+
+                                    <li class="comment">
+                                        <div class="comment-body p-4 shadow">
+                                            <div class="job-post-item-header d-flex align-items-center">
+                                                <div class="mr-3"><span class="icon-layers"></span> <a target="_blank" href="~/Users/ViewMode?freelancer_id=@item.Freelancer.FreelancerId">@item.Freelancer.FreelancerName</a></div>
+                                                <div class="mr-3"><span class="icon-phone"></span> <span>@item.Freelancer.Phone</span></div>
+
+                                                <div class="badge-wrap">
+                                                    @if (@item.JobConfirmFlag == 1)
+                                                    {
+                                                        <span class="bg-warning text-white badge py-2 px-3">Job Winnner</span>
+                                                    }
+                                                </div>
+                                            </div>
+
+                                            <div class="meta">@item.DateTime</div>
+                                            <p>@item.CoverMessage</p>
+
+                                            @if (@item.JobConfirmFlag == 1)
+                                            {
+                                                <p><a href="~/Inbox/UserReply?jobApplyId=@item.ApplyJobId" class="btn btn-success">Inbox</a></p>
+                                                <div class="progress">
+                                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:@item.Job.WorkProgess%">
+                                                        @item.Job.WorkProgess%
+                                                    </div>
+                                                </div>
+
+                                            }
+
+                                            @if (Model.JobActiveFlag != 1)
+                                            {
+                                                <p><a href="~/Users/Confirm_Freelancer?apply_job_id=@item.ApplyJobId" class="btn btn-success">Confirm Freelancer</a></p>
+
+                                            }
+                                        </div>
+                                    </li>
+                                }
+                            }
+
+
+                        }
+                        else
+                        {
+                            <li class="comment">
+                                <div class="comment-body p-4 shadow">
+                                    <h3 class="mr-3 text-black h3">No Proposals</h3>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

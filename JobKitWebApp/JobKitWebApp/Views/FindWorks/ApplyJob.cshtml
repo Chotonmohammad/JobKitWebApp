@@ -1,0 +1,168 @@
+﻿@model JobKitWebApp.Models.ApplyJob
+@{
+    ViewBag.Title = "Submit Proposal";
+}
+
+@if (ViewBag.ApplyConfirmMsg != null)
+{
+    <div class="ftco-section bg-light">
+        <div class="container">
+            <div class="p-4 mb-1 bg-white shadow">
+                <section class="ftco-section-parallax">
+                    <div class="parallax-img d-flex align-items-center">
+                        <div class="container">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+                                    <h2 style="font-size:30px">@ViewBag.ApplyConfirmMsg</h2>
+                                    <center><a href="~/FindWorks/Index" class="btn btn-success" style="color:white">Find More Work?</a></center>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    if (ViewBag.MyInfo.VerifiedFlag == 1)
+    {
+        <div class="ftco-section bg-light">
+            <div class="container">
+                <div class="p-4 mb-3 bg-white shadow">
+                    <center><a class="h5 text-black mb-3">Submit a Proposal</a></center>
+                </div>
+                <div class="p-4 mb-3 bg-white shadow">
+                    <h3 class="h5 text-black mb-3">Proposal Settings</h3>
+                    <p class="mb-0 font-weight-bold" style="color:green">This proposal requires <span style="color:red">1</span> connect.</p>
+                    <p class="mb-4" style="color:green">You have <span style="color:red">@ViewBag.MyInfo.TotalConnect</span> Connects remaining.</p>
+
+                </div>
+                <div class="row">
+
+                    <div class="col-md-12 col-lg-8 mb-5">
+
+                        @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "p-5 bg-white shadow" }))
+                        {
+                            <div class="row form-group">
+                                <div class="col-md-12 mb-3 mb-md-0">
+                                    <label for="option-price-1">
+                                        Budget: BDT <span class="text-success">@ViewBag.Job.Budget</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-12 mb-3 mb-md-0">
+                                    <label class="font-weight-bold" for="fullname">Job Title</label>
+                                    <input type="text" id="fullname" class="form-control" placeholder="title" value="@ViewBag.Job.JobTitle" readonly>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-12"><h3>Job Description</h3></div>
+                                <div class="col-md-12 mb-3 mb-md-0">
+                                    <textarea name="" class="form-control" id="" cols="30" rows="5" readonly>@ViewBag.Job.JobDescription</textarea>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col-md-12"><h3>Job Type</h3></div>
+                                <div class="col-md-12 mb-3 mb-md-0">
+                                    <label for="option-job-type-1">
+                                        @ViewBag.Job.JobType.JobTypeName
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row form-group mb-4">
+                                <div class="col-md-12"><h3>Location</h3></div>
+                                <div class="col-md-12 mb-3 mb-md-0">
+                                    <input type="text" class="form-control" value="@ViewBag.Job.City.CityName" placeholder="Location" readonly>
+                                </div>
+                            </div>
+
+                        }
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="p-4 mb-3 bg-white shadow">
+                            <h3 class="h5 text-black mb-3">Client Info</h3>
+                            <p class="mb-0 font-weight-bold">Name</p>
+                            <p class="mb-4">@ViewBag.Job.User.Name</p>
+                            <p class="mb-0 font-weight-bold">Phone</p>
+                            <p class="mb-4"><a href="#">@ViewBag.Job.User.Phone</a></p>
+                            <p class="mb-0 font-weight-bold">Email Address</p>
+                            <p class="mb-0"><a href="#">@ViewBag.Job.User.Email</a></p>
+                        </div>
+
+                        <div class="p-4 mb-3 bg-white shadow">
+                            <h3 class="h5 text-black mb-3">Freelancer Category for the Job</h3>
+                            <center><p href="#" class="btn btn-warning  py-2 px-4">@ViewBag.Job.FreelancerCategory.FreelancerCategoryName</p></center>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-lg-8 mb-5">
+                        @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "p-5 bg-white shadow" }))
+                        {
+                            @Html.TextBoxFor(c => c.JobId, new { @value = ViewBag.Job.JobId, @style = "display:none" })
+                            <div class="row form-group">
+                                <div class="col-md-12"><h3>Cover Message</h3></div>
+                                <div class="col-md-12 mb-3 mb-md-0">
+                                    @Html.TextAreaFor(c => c.CoverMessage, new { @class = "form-control", @required = "required" })
+                                </div>
+                            </div>
+
+                            if (ViewBag.MyInfo.TotalConnect > 0)
+                            {
+                                <div class="row form-group">
+                                    <div class="col-md-12">
+                                        <center><button type="submit" class="btn btn-primary  py-2 px-5">Submit a Proposal</button></center>
+                                        @*<input type="submit" value="Submit a Proposal" class="btn btn-primary  py-2 px-5">*@
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="row form-group">
+                                    <div class="col-md-12">
+                                        <p class="mb-0 font-weight-bold" style="color:green">Insufficient connects.</p>
+                                        <p class="mb-0 font-weight-bold" style="color:green">Do you want to add connects? <a href="~/Settings/Add_Connects" class="text-primary">click here</a></p>
+
+                                    </div>
+                                </div>
+
+                            }
+
+
+
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="ftco-section bg-light">
+            <div class="container">
+                <div class="p-4 mb-1 bg-white shadow">
+                    <section class="ftco-section-parallax">
+                        <div class="parallax-img d-flex align-items-center">
+                            <div class="container">
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+                                        <h2 style="font-size:30px">Your Account is not Verified.</h2>
+                                        <center><a href="~/FindWorks/Index" class="btn btn-success" style="color:white">Contact Us?</a></center>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+
+

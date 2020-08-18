@@ -1,0 +1,191 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/Assets/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="~/Assets/css/animate.css">
+
+    <link rel="stylesheet" href="~/Assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/Assets/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="~/Assets/css/aos.css">
+
+    <link rel="stylesheet" href="~/Assets/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="~/Assets/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/Assets/css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="~/Assets/css/flaticon.css">
+    <link rel="stylesheet" href="~/Assets/css/icomoon.css">
+    <link rel="stylesheet" href="~/Assets/css/style.css">
+    @RenderSection("styles", required: false)
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light shadow m-0" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#" style="color:#5dd28e;font-size:28px">JobKit</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    @*<li class="nav-item"><a href="~/FindWorks/Index" class="nav-link" style="color:#5dd28e">Find Work</a></li>
+                    <li class="nav-item active"><a href="~/MyProfile/Jobs" class="nav-link" style="color:#5dd28e">My Jobs</a></li>
+                    <li class="nav-item active"><a href="#" class="nav-link" style="color:#5dd28e">Inbox</a></li>
+                    <li class="nav-item"><a href="~/Freelancers/ProfileInfo" class="nav-link" style="color:#5dd28e">Profile</a></li>*@
+                    <li class="nav-item cta cta-colored"><a href="~/Home/Index" class="nav-link">LOG OUT</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END nav -->
+
+    @RenderBody();
+
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">About</h2>
+                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                        <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
+                            <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Employers</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="py-2 d-block">How it works</a></li>
+                            <li><a href="#" class="py-2 d-block">Register</a></li>
+                            <li><a href="#" class="py-2 d-block">Post a Job</a></li>
+                            <li><a href="#" class="py-2 d-block">Advance Skill Search</a></li>
+                            <li><a href="#" class="py-2 d-block">Recruiting Service</a></li>
+                            <li><a href="#" class="py-2 d-block">Blog</a></li>
+                            <li><a href="#" class="py-2 d-block">Faq</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4 ml-md-4">
+                        <h2 class="ftco-heading-2">Workers</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="py-2 d-block">How it works</a></li>
+                            <li><a href="#" class="py-2 d-block">Register</a></li>
+                            <li><a href="#" class="py-2 d-block">Post Your Skills</a></li>
+                            <li><a href="#" class="py-2 d-block">Job Search</a></li>
+                            <li><a href="#" class="py-2 d-block">Emploer Search</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Have a Questions?</h2>
+                        <div class="block-23 mb-3">
+                            <ul>
+                                <li><span class="icon icon-map-marker"></span><span class="text">Chittagong, Bangladesh</span></li>
+                                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+880182*******</span></a></li>
+                                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+
+                    <p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;
+                        <script>document.write(new Date().getFullYear());</script> All rights reserved | <a href="#" target="_blank">JobKit</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+
+
+    <script src="~/Assets/js/jquery.min.js"></script>
+    <script src="~/Assets/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="~/Assets/js/popper.min.js"></script>
+    <script src="~/Assets/js/bootstrap.min.js"></script>
+    <script src="~/Assets/js/jquery.easing.1.3.js"></script>
+    <script src="~/Assets/js/jquery.waypoints.min.js"></script>
+    <script src="~/Assets/js/jquery.stellar.min.js"></script>
+    <script src="~/Assets/js/owl.carousel.min.js"></script>
+    <script src="~/Assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/Assets/js/aos.js"></script>
+    <script src="~/Assets/js/jquery.animateNumber.min.js"></script>
+    <script src="~/Assets/js/bootstrap-datepicker.js"></script>
+    <script src="~/Assets/js/jquery.timepicker.min.js"></script>
+    <script src="~/Assets/js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="~/Assets/js/google-map.js"></script>
+    <script src="~/Assets/js/main.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+@*<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - My ASP.NET Application</title>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
+    </html>*@

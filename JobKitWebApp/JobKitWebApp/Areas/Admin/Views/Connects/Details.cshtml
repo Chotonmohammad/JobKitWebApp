@@ -1,0 +1,58 @@
+﻿@model JobKitWebApp.Models.Connect
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Connect</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ConnectPricing.ConnectPricingId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ConnectPricing.ConnectPricingId)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Freelancer.FreelancerName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Freelancer.FreelancerName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Refernce)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Refernce)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.PaymentStatus)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PaymentStatus)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ConnectId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>
